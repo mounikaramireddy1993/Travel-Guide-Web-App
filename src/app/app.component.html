@@ -1,0 +1,33 @@
+<!-- Toolbar -->
+<mat-toolbar color="primary" class="header">
+  <div>Travel Guide App</div>
+  <span class="nav-tool-items">
+    <mat-icon (click)="sidenav.toggle()" class="hamburger">menu</mat-icon>
+  </span>
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <!-- Sidenav -->
+  <mat-sidenav #sidenav [mode]="isBiggerScreen() ? 'over' : 'side'" [(opened)]="opened" [fixedInViewport]="true"
+    [fixedTopGap]>
+    <mat-nav-list>
+      <a mat-list-item routerLinkActive="active" routerLink="/vacation-packages-find">
+        <mat-icon></mat-icon> Search Vacation Packages
+      </a>
+      <a mat-list-item routerLinkActive="active" routerLink="/vacation-packages-list">
+        <mat-icon></mat-icon> View Vacation Packages
+      </a>
+      <a mat-list-item routerLinkActive="active" routerLink="/vacation-package-reservation">
+        <mat-icon></mat-icon> Reserve Vacation Package
+      </a>
+      <a mat-list-item routerLinkActive="active" routerLink="/vacation-package-reservations">
+        <mat-icon></mat-icon> View Reservations
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <!-- Main content -->
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
